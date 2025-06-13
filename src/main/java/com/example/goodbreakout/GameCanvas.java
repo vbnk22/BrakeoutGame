@@ -92,7 +92,6 @@ public class GameCanvas extends Canvas {
         this.setOnMouseClicked(mouseEvent -> {
             gameRunning = true;
             graphicsContext = this.getGraphicsContext2D();
-            graphicsContextMoney = this.getGraphicsContext2D();
             animationTimer.start();
         });
     }
@@ -102,13 +101,6 @@ public class GameCanvas extends Canvas {
         GraphicsItem.setCanvasSize(getWidth(), getHeight());
         paddle = new Paddle();
         ball = new Ball();
-
-        for (int i = 0; i < bricks.size(); ++i) {
-            if (i % 3 == 0) {
-                Brick brick = bricks.get(i);
-                brick.setHasMoneySymbol(true);
-            }
-        }
         this.loadLevel();
     }
 
@@ -124,12 +116,6 @@ public class GameCanvas extends Canvas {
             for (Brick brick : bricks) {
 
                 brick.draw(graphicsContext);
-
-                if (brick.hasMoneySymbol()) {
-                    graphicsContextMoney = getGraphicsContext2D();
-                    graphicsContextMoney.setFill(Color.YELLOW);
-                    graphicsContextMoney.fillOval(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight());
-                }
             }
         }
     }
