@@ -51,6 +51,6 @@ javac BreakoutGame.java
 java BreakoutGame
 ```
 
-### 🖼️ Screenshots
+### 🖼️ Screenshot
 
 ![Gameplay](assets/screenshot.png)
